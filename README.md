@@ -28,7 +28,7 @@ Using NLP, I wanted to explore the potential different topics that may emerge be
 
 ## Conclusion
 
-![Training Dataset Topics](training_topics.png)
+![Training Dataset Topics](training _topics.png)
 
 The top topics for the full training dataset were family, student, money and unemployment. 
 
