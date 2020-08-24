@@ -19,7 +19,7 @@ Using NLP, I wanted to explore the potential different topics that may emerge be
 
 1. Used [PushShiftData API](https://github.com/pushshift/api) to grab the Submission IDs, Request Title, and Request Text (Body) of submissions from January 1, 2014 - August 13, 2020. Extracted out 58,541 extra submissions. 
 2. Using [PRAW API](https://praw.readthedocs.io/en/latest/), find the most updated flairs by searching with the Submission IDs extracted from PushShiftData API. Cleaned up the dataframe by removing deleted posts, and flairs that were not designated as either being empty or 'Fulfilled'. 
-3. Combined the extracted dataset with the Kaggle dataset and split into training and testing: training with 30,420 entries and testing with 8,227 entries. 
+3. Combined the extracted dataset with the Kaggle dataset (used MongoDB to pull into Pandas DataFrame) and split into training and testing: training with 30,420 entries and testing with 8,227 entries. 
 4. Pre-processed training dataset with [spaCy](https://spacy.io/usage/spacy-101) by removing stop words and lemmatization.
 5. Applied [VADER Sentiment Analysis](https://github.com/cjhutto/vaderSentiment) to add as extra feature for classification.
 6. Applied TF-IDF in combination with NMF to produce viable topics for different data splits: only received pizza, not received pizza, and a combined dataset. 
@@ -28,4 +28,26 @@ Using NLP, I wanted to explore the potential different topics that may emerge be
 
 ## Conclusion
 
+![Training Dataset Topics](training_topics.png)
 
+The top topics for the full training dataset were family, student, money and unemployment. 
+
+![Received Pizza vs Not Received Pizza](received_vs_notreceived.png)
+
+When we split received vs not received, an extra topic emerges in both. For received pizza submissions, requests that asked for favors such as birthdays, treats, or something for their loved ones come up as an extra topic. On the other side, requests that mentioned the user was homeless yielded less favorable results. 
+
+As for my classification model, I went with the KNN model which yielded an accuracy of 0.91 for the testing dataset. 
+
+All in all, most submissions do not get pizza - and the topics for both received and not received submissions are very similar: free lunch is possible, but difficult!
+
+## Tools
+
+- Jupyter Notebook
+- Pandas
+- PRAW API
+- PushShiftData API
+- Scikit-Learn
+- spaCy
+- MongoDB
+- Matplotlib
+- Seaborn
