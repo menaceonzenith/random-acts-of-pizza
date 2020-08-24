@@ -7,6 +7,6 @@ Rudy Wang
 
 But what makes some submissions receive free pizza? And what makes others not receive pizza? 
 
-![Example of a RAOP Submission](example-post.png)
+![Example of a RAOP Submission](example_post.png)
 
 In the example post above, 
